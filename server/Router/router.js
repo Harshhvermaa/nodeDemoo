@@ -1,11 +1,22 @@
-import express from 'express';
+import express, { response } from 'express';
 import { getJson } from '../controller/functions.js';
+import { DemoSchema } from '../models/demoModel.js';
 
 export const Router = express.Router();
 
-Router.get("/",(req,res)=>{
-    res.send('Hi');
+Router.get("/getdata", async(req, res) => {
+    const data = await DemoSchema.find({}).sort({'created_at':'descending'});
+    res.json(data)
+});
+
+
+Router.post("/postData", async(req, res) => {
+
+    const response = await DemoSchema.create({ id: req.body.id, name: req.body.name,created_at: Date.now() })
+    res.json(response);
+
 })
-Router.get("/getData",getJson);
+
+// Router.get("/getData", getJson);
 
 
