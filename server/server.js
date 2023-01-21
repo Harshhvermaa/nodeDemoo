@@ -11,5 +11,5 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use('/',Router);
 
 app.listen(3000,()=>{
-    console.log('server at 3000 Yeahhhhh')
+    console.log('server rocking')
 });
