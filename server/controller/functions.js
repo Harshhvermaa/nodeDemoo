@@ -1,6 +1,5 @@
-
 export const getJson = (req,res)=>{
 
     console.log(req.body);
-    res.json({"greet":"HI"});
+    res.json({"greet":"Hello"});
 }
