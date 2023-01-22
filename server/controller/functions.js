@@ -1,5 +1,15 @@
-export const getJson = (req,res)=>{
+import { pool1 } from "../database/sql.js";
 
-    console.log(req.body);
-    res.json({"greet":"Hello"});
+
+
+
+export const getSqlData = (req, res) => {
+    const sql = "SELECT * FROM admin "
+    pool1.query(sql, (err, result) => {
+        if (result) {
+            res.json(result);
+        } else {
+            res.json(err);
+        }
+    });
 }
