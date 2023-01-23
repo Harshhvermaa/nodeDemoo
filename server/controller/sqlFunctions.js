@@ -51,7 +51,7 @@ export const postSqlData = async (req, res) => {
 
 export const getCountOfSqlTable = (req, res) => {
     const sql = "SELECT COUNT(*) FROM admin";
-    let count = 0;
+    let count = JSON.parse(res)[0].count;
     pool1.query('SELECT COUNT(*) AS count FROM admin', (err, rows,result) => {
         count = rows[0].count;
         res.json( result );
