@@ -6,6 +6,6 @@ const demoSchema = mongoose.Schema({
     },
     name:String,
     created_at: String
-})
+});
 
 export const DemoSchema = mongoose.model("demo",demoSchema);
